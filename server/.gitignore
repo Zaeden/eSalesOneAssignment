@@ -1,0 +1,38 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment variables
+.env
+.env*.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Prisma-generated files
+/generated/
+/prisma/migrations/
+
+# Build output
+/dist/
+/out/
+
+# Logs
+*.log
+logs/
+
+# macOS
+.DS_Store
+
+# Testing
+/coverage/
+.nyc_output/
+
+# Optional (if using)
+.eslintcache
+.cache/
+.temp/
