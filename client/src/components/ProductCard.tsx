@@ -18,7 +18,7 @@ const ProductCard = () => {
     const fetchProduct = async () => {
       setLoading(true);
       try {
-        const res = await fetch("/api/product");
+        const res = await fetch("/api/products");
         const data = await res.json();
         setProductData(data);
         setSelectedColor(data.colors[0]);

@@ -11,14 +11,15 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, "../../client/dist")));
 
-app.use("/api/product", productRouter);
+app.use("/api/products", productRouter);
 app.use("/api/checkout", checkoutRouter);
 app.use("/api/orders", orderRouter);
 
-app.get("*", (req: Request, res: Response) => {
+app.get("/{*any}", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "../../client/dist/index.html"));
 });
 
