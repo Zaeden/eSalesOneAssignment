@@ -4,6 +4,8 @@ import { useCartStore } from "../store/useCartStore";
 import Loader from "./Loader";
 import Toast from "../utils/Toast";
 
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+
 const ProductCard = () => {
   const navigate = useNavigate();
   const setProduct = useCartStore((state) => state.setProduct);
@@ -18,7 +20,7 @@ const ProductCard = () => {
     const fetchProduct = async () => {
       setLoading(true);
       try {
-        const res = await fetch("/api/products");
+        const res = await fetch(`${API_BASE_URL}/api/products`);
         const data = await res.json();
         setProductData(data);
         setSelectedColor(data.colors[0]);

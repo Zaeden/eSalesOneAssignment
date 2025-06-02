@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getColorName } from "../utils/getColorName";
 import { FaSpinner } from "react-icons/fa";
+import { API_BASE_URL } from "../components/ProductCard";
 
 const ThankYouPage = () => {
   const [params] = useSearchParams();
@@ -13,7 +14,7 @@ const ThankYouPage = () => {
   useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const res = await fetch(`/api/orders/${orderId}`);
+        const res = await fetch(`${API_BASE_URL}/api/orders/${orderId}`);
         const data = await res.json();
         setOrder(data);
       } catch (err) {

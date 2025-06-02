@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { getColorName } from "../utils/getColorName";
 import { FaSpinner } from "react-icons/fa";
 import Toast from "../utils/Toast";
+import { API_BASE_URL } from "../components/ProductCard";
 
 type FormData = {
   fullName: string;
@@ -35,7 +36,7 @@ const CheckoutPage = () => {
   const onSubmit = async (formData: FormData) => {
     setLoading(true);
     try {
-      const res = await fetch("/api/checkout", {
+      const res = await fetch(`${API_BASE_URL}/api/checkout`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
